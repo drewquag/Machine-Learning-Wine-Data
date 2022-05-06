@@ -63,7 +63,7 @@ if option == 'Home Page':
         st.write('**This is my data science project which displays various insights into a dataset containing over 150k wine descriptions.**')
         st.markdown('**To begin, please navigate the sidebar to view various web pages.**')
         st.markdown('_Below I have included both the link to the code which created this entire project and a project report summarizing key findings:_')
-        st.write("-  check out this [Deepnote Code](https://deepnote.com/workspace/drewquag-2e9b6724-412b-4149-af9a-d088e32ec141/project/Final-Project-71878eba-a214-42c9-ad82-39b82a172ad5/%2FFinal%20Python%20Work.ipynb)")
+        st.write("-  check out this [Deepnote Notebook](https://deepnote.com/workspace/drewquag-2e9b6724-412b-4149-af9a-d088e32ec141/project/Final-Project-71878eba-a214-42c9-ad82-39b82a172ad5/%2FFinal%20Python%20Work.ipynb)")
         st.write("-  check out this [Project Report](https://bentleyedu-my.sharepoint.com/:w:/g/personal/aquagliaroli_falcon_bentley_edu/ERsa1G2R641LvZQrWrqZx1IB3VS09oqkKpIesEoLYt9yqg?e=itv3b3)")
 
 
