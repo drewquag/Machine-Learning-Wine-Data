@@ -5,10 +5,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import zipfile
 
+#Read in the datafram from a zipfile
 zf = zipfile.ZipFile('winemag-data_first150k.zip')
 
 df = pd.read_csv(zf.open('winemag-data_first150k.csv'), index_col=0)
 
+
+#Create a function that returns a dataframe filtered by country, province (optional), and/or region (optional)
 def display_by_region (country_province_region):
     if len(country_province_region) == 1:
         df_country = df[df['country'] == country_province_region[0]]
@@ -23,7 +26,7 @@ def display_by_region (country_province_region):
         df_region = df_province[df_province['region_1'] == country_province_region[2]]
         return df_region
 
-
+#Create a function that creates a word cloud based on the descriptions of wine found in a dataframe
 def word_cloud(df):
     text = " ".join(review for review in df['description'])
 
@@ -33,6 +36,7 @@ def word_cloud(df):
     ax.axis("off")
     st.pyplot(fig)
 
+#Create a pie chart that maps the percentage of each wine variety for a country
 def find_wine_variety_frequency(country):
     df_country = df[df['country'] == country]
     df_variety = df_country.groupby('variety').size().sort_values(ascending=False).head(10)
@@ -50,7 +54,7 @@ st.sidebar.write('*' * 100)
 st.title("Andrew Quagliaroli's Data Science Final")
 st.write('*' * 100)
 
-
+#Design homepage
 if option == 'Home Page':
     col1, col2= st.columns(2)
     with col2:
@@ -63,8 +67,7 @@ if option == 'Home Page':
         st.write("-  check out this [Project Report](https://bentleyedu-my.sharepoint.com/:w:/g/personal/aquagliaroli_falcon_bentley_edu/ERsa1G2R641LvZQrWrqZx1IB3VS09oqkKpIesEoLYt9yqg?e=itv3b3)")
 
 
-
-#Make sure to fix error when region is np.nan
+#Create word cloud page with option to select the geographical region for the wordcloud
 elif option == 'Word Cloud':
     st.header('Wordcloud Vizualization')
     st.write('On this page you are able to vizualize a wordcloud of the most used words in the descriptions of wine based on country, province, or region. Please choose an option on the sidebar to begin vizualizing.')
@@ -96,7 +99,8 @@ elif option == 'Word Cloud':
             st.subheader(f'Word Cloud of Wine Descriptions: {region}, {province}, {country}')
             df_wordcloud = display_by_region([country, province, region])
             word_cloud(df_wordcloud)
-
+            
+#Create wine quality vizualization page with option to pick country
 elif option == 'Wine Quality by Country':
     st.header('Frequencies of Wine type by country')
     st.write('_This page will allow you to view the best wines varieties made in each country (max 10 wine varieties). This is done by averaging the points for each wine variety in each respective country and then ranking them._')
@@ -107,7 +111,7 @@ elif option == 'Wine Quality by Country':
     st.subheader(f'Top Wineries with Highest Average Wine Ratings in {country}')
     st.write(top_10)
 
-
+#Create Machine Learning Model Page
 elif option == 'Machine Learning':
     features = st.sidebar.button('Visualize Features')
     model = st.sidebar.button('Machine Learning Performance')
