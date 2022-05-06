@@ -117,7 +117,7 @@ elif option == 'Machine Learning':
     model = st.sidebar.button('Machine Learning Performance')
     st.header('Machine Learning with Wine Descriptions')
     if features:
-        st.write('_On this page you will be able to visualize some of the key features that make our predictive model possible.\nWe will be training the descriptions of each wine to predict the points that it will be scored.\nFeel free to use the slider on the sidebar to look at a specific subset of ratings._')
+        st.write('_On this page you will be able to visualize some of the key features that make our predictive model possible.\nWe will be training the descriptions of each wine to predict the points that it will be scored._')
 
         # Make bar chart
         st.subheader('_Number of Wines at Each Point Rating_')
