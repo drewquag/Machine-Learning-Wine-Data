@@ -118,7 +118,7 @@ elif option == 'Machine Learning':
     st.header('Machine Learning with Wine Descriptions')
     if features:
         range_ = st.sidebar.slider('Please choose a range of wine ratings you would like to discover:', int(df['points'].min()), int(df['points'].max()), (int(df['points'].min()), int(df['points'].max())))
-        df = df.query(f"`points` >= {range_[0]} and `points` <= {range_[1]}")
+        df = df.query(f"'points' >= {range_[0]} and 'points' <= {range_[1]}")
         st.write('_On this page you will be able to visualize some of the key features that make our predictive model possible.\nWe will be training the descriptions of each wine to predict the points that it will be scored.\nFeel free to use the slider on the sidebar to look at a specific subset of ratings._')
 
         # Make bar chart
