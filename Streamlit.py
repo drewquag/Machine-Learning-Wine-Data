@@ -118,7 +118,7 @@ elif option == 'Machine Learning':
     st.header('Machine Learning with Wine Descriptions')
     if features:
         st.write('_On this page you will be able to visualize some of the key features that make our predictive model possible.\nWe will be training the descriptions of each wine to predict the points that it will be scored._')
-
+"""
         # Make bar chart
         st.subheader('_Number of Wines at Each Point Rating_')
         val_count = df['points'].value_counts()
@@ -132,7 +132,7 @@ elif option == 'Machine Learning':
         st.write('As you can see, the distribution of wines across points is approximately normal.')
 
         st.pyplot(fig)
-
+"""
         # Make box and whisker
         st.subheader('_Box & Whisker Plot for Length of Wine Descriptions_')
         st.write('As you can see, wines with a higher point rating tend to have longer descriptions.')
