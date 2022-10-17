@@ -154,7 +154,7 @@ elif option == 'Machine Learning':
     elif model:
         st.subheader('Machine Learning Model Performance Metrics')
         st.write('This table below gives both the precision and the recall of our machine learning model. The precision measures how many false negatives our model created and the recall measures the number of false negatives of our model.')
-        st.write('This then indicates that there was only a 5% chance of a false positive and a 5% chance of a false positive.')
+        st.write('This then indicates that there was only a 5% chance of a false positive and a 5% chance of a false negative.')
         st.image('Screenshot 2022-05-04 123412.png')
 
 
